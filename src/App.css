@@ -6,10 +6,10 @@
 }
 
 :root {
-  --glass-bg: rgba(18, 20, 28, 0.42);
-  --glass-border: rgba(255, 255, 255, 0.22);
-  --glass-highlight: rgba(255, 255, 255, 0.22);
-  --glass-blur: blur(90px) saturate(2) brightness(1.15);
+  --glass-bg: rgba(18, 18, 22, 0.28);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-highlight: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(40px) saturate(1.4);
   --accent-blue: #6b94e1;
   --text-white: #f0f0f4;
   --text-gray: #b8bac0;
@@ -153,69 +153,17 @@ body {
 }
 
 .glass-card.active {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.14) 0%,
-      rgba(255, 255, 255, 0.02) 42%,
-      rgba(255, 255, 255, 0.06) 100%
-    ),
-    var(--glass-bg);
+  background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   -webkit-backdrop-filter: var(--glass-blur);
   backdrop-filter: var(--glass-blur);
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.55),
-    0 8px 20px rgba(0, 0, 0, 0.35),
-    0 2px 6px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 var(--glass-highlight),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 var(--glass-highlight);
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-}
-
-.glass-card.active::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(
-      ellipse 80% 60% at 20% 0%,
-      rgba(255, 255, 255, 0.12),
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 60% 40% at 100% 100%,
-      rgba(107, 148, 225, 0.06),
-      transparent 60%
-    );
-  pointer-events: none;
-  z-index: 0;
-}
-
-.glass-card.active::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.28) 0%,
-    rgba(255, 255, 255, 0.04) 40%,
-    rgba(255, 255, 255, 0.02) 70%,
-    rgba(255, 255, 255, 0.14) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 1;
 }
 
 .card-inner {
