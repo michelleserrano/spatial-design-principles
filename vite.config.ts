@@ -17,5 +17,10 @@ export default defineConfig(({ command }) => ({
     // Cursor's Source Control UI (no terminal auth required for GHE SSO).
     outDir: "docs",
     emptyOutDir: true,
+    // Target modern browsers so Lightning CSS keeps the unprefixed
+    // `backdrop-filter` property (older defaults collapse it to the
+    // legacy `-webkit-` alias, which silently no-ops in modern Chrome).
+    target: "es2022",
+    cssTarget: ["chrome100", "safari15", "firefox100", "edge100"],
   },
 }));

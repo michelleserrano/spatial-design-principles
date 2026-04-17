@@ -6,9 +6,10 @@
 }
 
 :root {
-  --glass-bg: rgba(18, 20, 28, 0.72);
+  --glass-bg: rgba(18, 20, 28, 0.42);
   --glass-border: rgba(255, 255, 255, 0.22);
   --glass-highlight: rgba(255, 255, 255, 0.22);
+  --glass-blur: blur(90px) saturate(2) brightness(1.15);
   --accent-blue: #6b94e1;
   --text-white: #f0f0f4;
   --text-gray: #b8bac0;
@@ -161,8 +162,8 @@ body {
     ),
     var(--glass-bg);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(90px) saturate(2.0) brightness(1.15);
-  -webkit-backdrop-filter: blur(90px) saturate(2.0) brightness(1.15);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   box-shadow:
     0 24px 64px rgba(0, 0, 0, 0.55),
     0 8px 20px rgba(0, 0, 0, 0.35),
