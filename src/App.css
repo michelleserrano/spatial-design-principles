@@ -38,6 +38,12 @@ body {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
+  animation: sceneFadeIn 1.2s ease-out both;
+}
+
+@keyframes sceneFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ═══ SCROLL CONTENT (OVER 3D) ═══ */
@@ -304,6 +310,41 @@ body {
   background: var(--accent-blue);
   box-shadow: 0 0 8px rgba(107, 148, 225, 0.4);
   transform: scale(1.4);
+}
+
+/* ═══ FOOTER ═══ */
+.site-footer {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.site-footer-sep {
+  opacity: 0.5;
+}
+
+/* ═══ REDUCED MOTION ═══ */
+@media (prefers-reduced-motion: reduce) {
+  .scene-container {
+    animation: none;
+  }
+  .scroll-line {
+    animation: none;
+    opacity: 0.5;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ═══ MOBILE ═══ */

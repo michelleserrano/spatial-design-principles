@@ -1,4 +1,5 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
+import { Leva } from "leva";
 import { Scene } from "./components/Scene";
 import { HeroSection } from "./components/HeroSection";
 import { PrincipleSection } from "./components/PrincipleSection";
@@ -12,6 +13,23 @@ function App() {
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [contextPhase, setContextPhase] = useState(0);
   const phaseThrottle = useRef(0);
+  const [tunerHidden, setTunerHidden] = useState(true);
+  const isDev = import.meta.env.DEV;
+
+  useEffect(() => {
+    if (!isDev) return;
+    const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
+        return;
+      }
+      if (e.key === "t" || e.key === "T") {
+        setTunerHidden((h) => !h);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isDev]);
 
   const onPrincipleVisible = useCallback((index: number) => {
     setVisibleIndex(index);
@@ -31,6 +49,7 @@ function App() {
 
   return (
     <div className="app">
+      {isDev && <Leva hidden={tunerHidden} collapsed={false} />}
       <Scene
         activeIndex={visibleIndex}
         progress={progress}
@@ -66,6 +85,11 @@ function App() {
               system you have.
             </p>
           </div>
+          <footer className="site-footer">
+            <span>Spatial Principles</span>
+            <span className="site-footer-sep">·</span>
+            <span>A study in spatial interface design</span>
+          </footer>
         </section>
       </div>
 
