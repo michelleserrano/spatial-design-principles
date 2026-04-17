@@ -11,5 +11,5 @@ export default defineConfig(({ command }) => ({
   base:
     command === "serve"
       ? "/"
-      : process.env.VITE_BASE_PATH ?? "/spatial-principles-site/",
+      : process.env.VITE_BASE_PATH ?? "/spatial-design-principles/",
 }));
