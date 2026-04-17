@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 dist
+# docs/ is intentionally tracked — it's the GitHub Pages publish target
+# (Settings → Pages → Source: Deploy from a branch, Branch: master, Folder: /docs)

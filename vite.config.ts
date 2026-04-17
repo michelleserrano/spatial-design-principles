@@ -12,4 +12,11 @@ export default defineConfig(({ command }) => ({
     command === "serve"
       ? "/"
       : process.env.VITE_BASE_PATH ?? "/spatial-design-principles/",
+  build: {
+    // Output into docs/ so we can publish via GitHub Pages using the
+    // "master /docs" source — all commits and pushes happen through
+    // Cursor's Source Control UI (no terminal auth required for GHE SSO).
+    outDir: "docs",
+    emptyOutDir: true,
+  },
 }));
