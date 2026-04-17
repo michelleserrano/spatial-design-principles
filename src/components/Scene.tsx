@@ -22,11 +22,10 @@ export function Scene({
         dpr={[1, 1.5]}
         gl={{
           antialias: true,
-          alpha: false,
+          alpha: true,
           powerPreference: "high-performance",
         }}
       >
-        <color attach="background" args={["#08080c"]} />
         <Environment
           activeIndex={activeIndex}
           progress={progress}
