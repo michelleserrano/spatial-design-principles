@@ -6,10 +6,10 @@
 }
 
 :root {
-  --glass-bg: rgba(18, 18, 22, 0.23);
+  --glass-bg: rgba(18, 18, 22, 0.10);
   --glass-border: rgba(255, 255, 255, 0.12);
   --glass-highlight: rgba(255, 255, 255, 0.08);
-  --glass-blur: blur(40px) saturate(1.4);
+  --glass-blur: blur(20px) saturate(1.4);
   --accent-blue: #6b94e1;
   --text-white: #f0f0f4;
   --text-gray: #b8bac0;
