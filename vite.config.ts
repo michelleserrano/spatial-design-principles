@@ -3,15 +3,14 @@ import react from "@vitejs/plugin-react";
 
 // Base path notes:
 // - dev server always serves at "/"
-// - production builds default to "/spatial-principles-site/" for GitHub Pages
-//   (override with VITE_BASE_PATH env var if you host elsewhere or use a
-//   custom domain — set VITE_BASE_PATH=/ for root deployment)
+// - production uses "./" (relative) so the build works on any host path
+//   (GHE Pages serves at /{user}/{repo}/, public GH Pages at /{repo}/,
+//   custom domains at /). Relative paths sidestep all of that.
+//   Override with VITE_BASE_PATH if you ever need an absolute base.
 export default defineConfig(({ command }) => ({
   plugins: [react()],
   base:
-    command === "serve"
-      ? "/"
-      : process.env.VITE_BASE_PATH ?? "/spatial-design-principles/",
+    command === "serve" ? "/" : process.env.VITE_BASE_PATH ?? "./",
   build: {
     // Output into docs/ so we can publish via GitHub Pages using the
     // "master /docs" source — all commits and pushes happen through
