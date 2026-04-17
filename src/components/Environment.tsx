@@ -2047,10 +2047,10 @@ export function Environment({
   // ==========================================================================
   return (
     <>
-      <ambientLight intensity={0.12} />
-      <directionalLight position={[5, 5, 5]} intensity={0.3} color="#c0d0f0" />
-      <directionalLight position={[-3, -2, 4]} intensity={0.1} color="#f0c080" />
-      <fog attach="fog" args={["#0a0a0f", 6, 28]} />
+      <ambientLight intensity={0.18} />
+      <directionalLight position={[5, 5, 5]} intensity={0.35} color="#c8d4f2" />
+      <directionalLight position={[-3, -2, 4]} intensity={0.14} color="#f0c080" />
+      <fog attach="fog" args={["#141828", 6, 28]} />
 
       {/* Background particles */}
       <points ref={particleRef}>
