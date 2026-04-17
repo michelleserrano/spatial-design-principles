@@ -14,10 +14,8 @@ function App() {
   const [contextPhase, setContextPhase] = useState(0);
   const phaseThrottle = useRef(0);
   const [tunerHidden, setTunerHidden] = useState(true);
-  const isDev = import.meta.env.DEV;
 
   useEffect(() => {
-    if (!isDev) return;
     const onKey = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
       if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
@@ -29,7 +27,7 @@ function App() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [isDev]);
+  }, []);
 
   const onPrincipleVisible = useCallback((index: number) => {
     setVisibleIndex(index);
@@ -49,7 +47,8 @@ function App() {
 
   return (
     <div className="app">
-      {isDev && <Leva hidden={tunerHidden} collapsed={false} />}
+      <Leva hidden={tunerHidden} collapsed={false} />
+
       <Scene
         activeIndex={visibleIndex}
         progress={progress}
